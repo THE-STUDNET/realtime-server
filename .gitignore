@@ -1,0 +1,10 @@
+/nbproject
+/node_modules
+stderr.log
+stdout.log
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+envs/*
+!envs/default.js
