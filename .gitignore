@@ -2,6 +2,8 @@
 /node_modules
 stderr.log
 stdout.log
+cert.pem
+key.pem
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
