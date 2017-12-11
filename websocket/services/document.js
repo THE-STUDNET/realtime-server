@@ -1,5 +1,6 @@
 module.exports = function( app, socket ){
-    var disconnectionHandlers = {};
+    var disconnectionHandlers = {},
+        server = app.websocketServer;
 
     // --- Listen to document related events --- //
     // Item submission document update.

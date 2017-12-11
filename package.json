@@ -1,0 +1,17 @@
+{
+  "name": "twic-realtime-server",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ioredis": "3.2.1",
+    "node-jsonrpc2": "^1.0.0",
+    "recursive-object-assign": "^1.0.1",
+    "socket.io": "2.0.4",
+    "socket.io-redis": "5.2.0",
+    "yargs": "^5.0.0"
+  },
+  "devDependencies": {},
+  "author": "THE STUDNET",
+  "license": "MIT"
+}
