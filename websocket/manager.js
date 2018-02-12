@@ -1,5 +1,5 @@
 var crypto = require('crypto'),
-    connections_service = require('./services/connections'),
+    states_service = require('./services/user_states'),
     chat_service = require('./services/chat'),
     document_service = require('./services/document');
 
@@ -16,8 +16,8 @@ module.exports = function( app ){
                 // Set socket user data
                 socket.user = data;
                 // Set websocket services.
-                // => connections service.
-                connections_service( app, socket );
+                // => users states service.
+                states_service( app, socket );
                 // => chat service.
                 chat_service( app, socket );
                 // => document service.

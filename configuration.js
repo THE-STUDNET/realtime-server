@@ -36,13 +36,21 @@ module.exports = {
         // hasAuthorization: functionToCheckUserAuthorization
     },
     notification_manager:{
-        request:{
-            // API Request options. See https://nodejs.org/api/http.html#http_http_request_options_callback
-            protocol: 'https:',
-            host: 'API_DOMAIN',
-            port: 443,
-            path: '/notify',
+        debug: false
+    },
+    services:{
+        box:{
+            host: 'upload.box.com',
+            path: '/api/2.0/files/content',
+            upload_url: 'https://upload.box.com/api/2.0/files/content'
+        },
+        twic_api: {
+            port: 80,
+            protocol: 'http:',
+            host: 'local.api.com',
             method: 'POST',
+            box_upload_path: '/uptboxid',
+            notify_path: '/notify'
         }
     },
     log_file_path:'', // PATH TO LOG FILE. IF NOT DEFINED CREATE A FILE stdout.log in current folder.

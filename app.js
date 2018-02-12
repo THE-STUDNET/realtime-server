@@ -41,7 +41,17 @@ app.websocketServer.of('/').adapter.on('error', function(){
 });
 
 // --- SET NOTIFICATION MANAGER --- //
-app.ntfManager = new notificationsManager( pubClient, app.configuration.notification_manager );
+var options = {
+    request:{
+        port: app.configuration.services.twic_api.port,
+        protocol: app.configuration.services.twic_api.protocol,
+        host: app.configuration.services.twic_api.host,
+        method: app.configuration.services.twic_api.method,
+        path: app.configuration.services.twic_api.notify_path,
+        headers: app.configuration.services.twic_api.headers
+    }
+}
+app.ntfManager = new notificationsManager( pubClient, options );
 app.ntfManager.start();
 
 // Listen to websocket user events.

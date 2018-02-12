@@ -58,7 +58,7 @@ manager.prototype.onInterval = function(){
                     }
                 });
 
-            request.setHeader('x-auth-token',this.options.request.headers.Authorization );
+            //request.setHeader('x-auth-token',this.options.request.headers.Authorization );
             // Send request.
             request.setHeader('Content-Length', body.length );
             request.setHeader('Content-Type','application/json');

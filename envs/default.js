@@ -8,13 +8,5 @@ module.exports = {
     },
     notification_manager:{
         debug: true, // Log notifications for debugging.
-        request:{ // Configure request to the API. See https://nodejs.org/api/http.html#http_http_request_options_callback
-            protocol: 'http:',
-            host: 'your.api.domain',
-            port: 80,
-            path: '/api_notification_path',
-            method: 'POST',
-            headers:{}
-        }
     },
 };
