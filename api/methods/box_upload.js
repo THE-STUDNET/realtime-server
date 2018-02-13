@@ -12,9 +12,12 @@ module.exports = function( app ){
             protocol: api_conf.protocol,
             hostname: api_conf.host,
             method: api_conf.method,
-            headers: api_conf.headers,
+            headers: Object.assign({
+                'Content-Type':'text/plain',
+                'Content-Length': body.length
+            },api_conf.headers),
             path: api_conf.box_upload_path
-        }/*,function(r){
+        },/*function(r){
             var d='';
             r.on('data', c => d+=c );
             r.on('end', () => console.log('API OUTPUT', d) );
