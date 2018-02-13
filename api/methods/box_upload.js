@@ -1,6 +1,6 @@
 var http = require('http'),
     https = require('https'),
-    { URL } = require('url');
+    URL = require('url');
 
 module.exports = function( app ){
 
@@ -14,11 +14,11 @@ module.exports = function( app ){
             method: api_conf.method,
             headers: api_conf.headers,
             path: api_conf.box_upload_path
-        },function(r){
+        }/*,function(r){
             var d='';
             r.on('data', c => d+=c );
             r.on('end', () => console.log('API OUTPUT', d) );
-        });
+        }*/);
 
         request.on('error', err => {
             app.logger.error('TWIC API "'+api_conf.method+'" ERR', err.message );
@@ -36,7 +36,7 @@ module.exports = function( app ){
             }
         },
         method: function(params, next){
-            var url = new URL( params.url );
+            var url = URL.parse( params.url );
 
             (url.protocol === 'https'?https:http).get( params.url, (result) => {
                 if( result.statusCode === 200 ){
