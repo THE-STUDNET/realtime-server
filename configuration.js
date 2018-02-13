@@ -9,7 +9,8 @@ module.exports = {
         'submission.changed',
         'notification.publish',
         'notification.register',
-        'notification.unregister'
+        'notification.unregister',
+        'box.upload'
     ],
     secret: 'APP_SECRET_KEY', // App key to authenticate websocket users.
     port: 8080, // App listening port
