@@ -17,7 +17,7 @@ module.exports = function( app ){
                 'Content-Length': body.length
             },api_conf.headers),
             path: api_conf.box_upload_path
-        },/*function(r){
+        }/*function(r){
             var d='';
             r.on('data', c => d+=c );
             r.on('end', () => console.log('API OUTPUT', d) );
