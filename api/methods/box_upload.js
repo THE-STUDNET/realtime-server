@@ -8,7 +8,7 @@ module.exports = function( app ){
         var api_conf = app.configuration.services.twic_api,
             body = JSON.stringify({err:err,id:file_id,box_id:box_id});
 
-        var request = (api_conf.protocol==='https'?https:http).request({
+        var request = (api_conf.protocol==='https:'?https:http).request({
             protocol: api_conf.protocol,
             hostname: api_conf.host,
             method: api_conf.method,
@@ -38,7 +38,7 @@ module.exports = function( app ){
         method: function(params, next){
             var url = URL.parse( params.url );
 
-            (url.protocol === 'https'?https:http).get( params.url, (result) => {
+            (url.protocol === 'https:'?https:http).get( params.url, (result) => {
                 if( result.statusCode === 200 ){
                     next( null, true );
 
