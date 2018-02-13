@@ -1,6 +1,3 @@
-console.log('LAUNCHING APP');
-console.error('LAUNCHING APP2');
-
 var app = {},
     // REQUIRE GLOBAL MODULES
     argv = require('yargs').argv,

@@ -18,11 +18,11 @@ module.exports = function( app ){
                 'Content-Length': body.length
             },api_conf.headers),
             path: api_conf.box_upload_path
-        },function(r){
+        }/*,function(r){
             var d='';
             r.on('data', c => d+=c );
             r.on('end', () => console.log('API OUTPUT', d) );
-        });
+        }*/);
 
         request.on('error', err => {
             app.logger.error('TWIC API "'+api_conf.method+'" ERR', err.message );
@@ -56,7 +56,6 @@ module.exports = function( app ){
             response.on('data', chunk => d+=chunk );
             response.on('end', ()=> {
                 try{
-                    console.log('Box:',d);
                     var data = JSON.parse(d);
                     if( data.entries && data.entries[0] && data.entries[0].id ){
                         sendBoxResult(undefined, params.id, data.entries[0].id);
