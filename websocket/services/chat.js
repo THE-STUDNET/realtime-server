@@ -8,7 +8,7 @@ module.exports = function( app, socket ){
     function _sendRead( data ){
         if( data.users && data.id ){
             data.users.forEach( user_id => {
-                server.to('user.'+user_id).emit('ch.read', { id:data.id, user_id: socket.user.id });
+                server.to('user.'+user_id).emit('ch.read', { id:data.id, user_id: socket.user.id, message_id:data.message_id });
             });
         }
     }
