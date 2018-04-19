@@ -55,13 +55,15 @@ module.exports = function( app ){
             let d='';
             response.on('data', chunk => d+=chunk );
             response.on('end', ()=> {
+                let data;
                 try{
-                    var data = JSON.parse(d);
-                    if( data.entries && data.entries[0] && data.entries[0].id ){
-                        sendBoxResult(undefined, params.id, data.entries[0].id);
-                    }
+                    data = JSON.parse(d);
                 }catch( e ){
-                    app.logger.error('BOX RESULT PARSE ERR', e.message );
+                    app.logger.error('BOX RESULT PARSE ERR', e.message, d );
+                    sendBoxResult( { message:e.message, content: d } );
+                }
+                if( data.entries && data.entries[0] && data.entries[0].id ){
+                    sendBoxResult(undefined, params.id, data.entries[0].id);
                 }
             });
         }).on('error', e => {
