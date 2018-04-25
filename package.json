@@ -2,6 +2,7 @@
   "name": "twic-realtime-server",
   "scripts": {
     "start": "node app.js",
+    "heroku-start": "node app.js --env heroku",
     "eb": "node app.js --env eb",
     "eb-deploy": "eb deploy rt-production",
     "eb-create": "eb create --elb-type application --vpc.id vpc-f1721996 --vpc.elbpublic --vpc.publicip --vpc.elbsubnets subnet-111ef03e,subnet-3a4ff471 --vpc.dbsubnets subnet-111ef03e,subnet-3a4ff471 --vpc.ec2subnets subnet-111ef03e,subnet-3a4ff471 --vpc.securitygroups sg-f65d1284 -p node.js -i t2.medium"
