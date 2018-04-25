@@ -10,3 +10,4 @@ key.pem
 !.elasticbeanstalk/*.global.yml
 envs/*
 !envs/default.js
+!envs/heroku.js
