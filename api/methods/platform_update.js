@@ -6,7 +6,6 @@ module.exports = function( app ){
             }
         },
         method: function(params, next, request){
-            console.log('ARGS?', request);
             // Send via redis & websocket 'platforme.update' event.
             app.websocketServer.emit('platform.update', params.version);
             // Return...

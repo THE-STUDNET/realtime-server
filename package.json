@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "ioredis": "3.2.1",
-    "node-jsonrpc2": "^1.0.1",
+    "node-jsonrpc2": "^1.0.2",
     "recursive-object-assign": "^1.0.1",
     "socket.io": "2.0.4",
     "socket.io-redis": "5.2.0",
