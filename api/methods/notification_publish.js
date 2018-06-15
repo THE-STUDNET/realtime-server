@@ -8,10 +8,13 @@ module.exports = function( app ){
             }
         },
         method: function(params, next){
+            console.log('NOTIFICATION PUBLISH', params );
+
             if( params.type === 'user' && params.users.length ){
                 // If type = user && having users => Send to each 'notification' event.
                 params.users.forEach(function(user_id){
                     app.websocketServer.to('user.'+user_id).emit('notification', params.notification );
+                    app.webpush( user_id, params.notification );
                 });
                 // Return OK.
                 next(null,true);

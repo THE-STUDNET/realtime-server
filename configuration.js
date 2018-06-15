@@ -54,6 +54,11 @@ module.exports = {
             notify_path: '/notify'
         }
     },
+    webpush:{
+        public_key: '',
+        private_key: '',
+        mailto: ''
+    },
     log_file_path:'', // PATH TO LOG FILE. IF NOT DEFINED CREATE A FILE stdout.log in current folder.
     error_file_path:''  // PATH TO ERROR LOG FILE. IF NOT DEFINED CREATE A FILE stderr.log in current folder.
 };

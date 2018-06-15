@@ -40,6 +40,9 @@ app.websocketServer.of('/').adapter.on('error', function(){
     app.logger.error('socket.io adapter error', arguments, (new Date()).toISOString() );
 });
 
+// SET WEBPUSH FUNCTION.
+app.webpush = require('./libs/webPushManager')(app);
+
 // --- SET NOTIFICATION MANAGER --- //
 var options = {
     request:{

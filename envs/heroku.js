@@ -22,5 +22,10 @@ module.exports = {
                 'x-auth-token': process.env.TWIC_API_X_AUTH_TOKEN
             }
         }
-    }
+    },
+    webpush:{
+        public_key: process.env.PUBLIC_VAPID_KEY,
+        private_key: process.env.PRIVATE_VAPID_KEY,
+        mailto: process.env.MAILTO
+    },
 };
