@@ -4,8 +4,8 @@ module.exports = function( app ){
 
     webpush.setVapidDetails(
         app.configuration.webpush.mailto,
-        app.configuration.webpush.publicKey,
-        app.configuration.webpush.privateKey
+        app.configuration.webpush.public_key,
+        app.configuration.webpush.private_key
     );
 
     function sendWebPushToUser( user_id, data ){
