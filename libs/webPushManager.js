@@ -19,9 +19,8 @@ module.exports = function( app ){
 
                 subscriptions.forEach( subscription => {
 
-                    let promise = webpush.sendNotification( subscription, data ).catch( err => {
-                        console.log('ERROR SENDING WEBPUSH', err );
-                        subscriptions.splice( 1, subscriptions.indexOf( subscription ) );
+                    let promise = webpush.sendNotification( subscription, JSON.stringify(data) ).catch( err => {
+                        subscriptions.splice( subscriptions.indexOf( subscription ), 1 );
                         error = true;
                     });
 
@@ -30,7 +29,7 @@ module.exports = function( app ){
 
                 return Promise.all(promises).then( ()=>{
                     if( error ){
-                        return app.redisDB.set('user.'+params.user+'.webpush', JSON.stringify( subscriptions ));
+                        return app.redisDB.set('user.'+user_id+'.webpush', JSON.stringify( subscriptions ));
                     }
                 });
             }
