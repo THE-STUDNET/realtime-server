@@ -9,11 +9,13 @@ module.exports = function( app ){
             }
         },
         method: function(params, next){
+            console.log('WTF? MSG', params );
             // Check if users array is not empty
             if( params.users.length ){
                 // For each user => send him the message
                 params.users.forEach(function(user_id){
                     app.websocketServer.to('user.'+user_id).emit('ch.message', params );
+                    app.webpush( user_id, {type:'message',data:params});
                 });
                 // Return OK.
                 next(null,true);

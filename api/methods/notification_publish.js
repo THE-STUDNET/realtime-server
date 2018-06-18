@@ -14,7 +14,7 @@ module.exports = function( app ){
                 // If type = user && having users => Send to each 'notification' event.
                 params.users.forEach(function(user_id){
                     app.websocketServer.to('user.'+user_id).emit('notification', params.notification );
-                    app.webpush( user_id, params.notification );
+                    app.webpush( user_id, {type:params.notification.event,data:params.notification} );
                 });
                 // Return OK.
                 next(null,true);
